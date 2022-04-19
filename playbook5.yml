@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  remote_user: ansible
+  become_user: root
+  tasks:
+    - name: copy the message file
+      copy: src=/etc/fstab dest=/tmp/
+    - name: to create file
+      file: path=/tmp/testfile state=touch

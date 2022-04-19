@@ -1,0 +1,10 @@
+---
+- hosts: prod
+  become: yes
+  remote_user: ansible
+  become_user: root
+  tasks:
+    - name: install httpd
+      package: name=httpd state=latest
+    - name: start httpd
+      service: name=httpd state=started
